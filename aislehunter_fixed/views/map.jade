@@ -1,0 +1,19 @@
+extends layout
+block content
+  .outer
+    .middle
+      .inner
+        h1 #{store} : #{item}
+        #map
+          img(id="mapimage" src='#{imageurl}.jpg' alt="ERROR: File '#{imageurl}.jpg' Not Found!")
+        #location
+          .locationsubdiv#tags
+            h2 Aisle: 
+            h2 Position In Aisle:
+            h2 Shelf (From Bottom):
+            h2 Special Comments: 
+          .locationsubdiv#info
+            h2 #{anum}
+            h2 #{pia}
+            h2 #{snum}
+            h2 #{com}

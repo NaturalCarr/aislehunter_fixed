@@ -1,0 +1,28 @@
+extends layout
+link(rel='stylesheet', href='/stylesheets/store.css')
+block content
+  .outer
+    .middle
+      .inner
+        h1.storename #{store}
+        .subdiv#address
+          h1 Address
+          h3 #{add}, #{zip}
+        .subdiv#hours
+          ul#hours
+            h1.sublabel Hours
+            li #{Sun}
+            li #{Mon}
+            li #{Tue}
+            li #{Wed}
+            li #{Thu}
+            li #{Fri}
+            li #{Sat}
+        ul#itemlist
+          .dropdown
+            button.dropbtn(onclick="myFunction()") Items
+            #myDropdown.dropdown-content
+              each item, i in items
+                a(href="/map?store=" + "#{store}" + "&item=" + "#{item}").itemlink
+                    span.itemlabel #{item}
+  
