@@ -1,0 +1,55 @@
+extends loggedin
+block content
+  link(rel='stylesheet', href='/stylesheets/homepage.css')
+  link(rel='stylesheet', href='/stylesheets/index.css')
+  .outer
+    .middle
+      .inner
+          ul#mainlist
+            li.main_display
+                p.homelabel Your Pools
+                .main_display_div#your_pools
+                        tr.labels
+                            each pname, i in pool_name
+                                table.pools
+                                    tr
+                                        th Name
+                                        th Total Value
+                                        th Members
+                                    tr
+                                        td #{pool_name[i]}   
+                                        td $#{pool_total_value[i]}
+                                        td #{member_count[i]} of #{minimum[i]}
+                                    tr
+                                        th Rating Req
+                                        th Segment Value
+                                        th Segemnt Count
+                                    tr
+                                        td #{rating[i]}
+                                        td $#{segp[i]}
+                                        td #{payout_r[i]}
+
+
+            li.main_display
+                p.homelabel New Pools
+                .main_display_div
+                    ul.sublist#NewPools
+                        a(href="membersearch")
+                            li Member Search
+                        a(href="createpool")
+                            li Create Pool
+            li.main_display
+                p.homelabel Your Account
+                .main_display_div#youraccount
+                    ul.sublist#useraccount_actions
+                        li
+                            p.hello Hello, #{username}
+                        li 
+                            p Your Wallet
+                            p Value: $#{val} USD
+                            p ID: #{walletid}
+                        li
+                            form(class="logout" method="get" action='/logout')
+                                input(class="logout_button" type="submit" value="Log Out")
+                            
+   
